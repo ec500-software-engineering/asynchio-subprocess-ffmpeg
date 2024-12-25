@@ -3,6 +3,7 @@ from pathlib import Path
 import typing as T
 import shutil
 import functools
+import os
 
 
 def get_videos(path: Path, suffixes: str | set[str] | None = None) -> T.Iterator[Path]:
@@ -22,9 +23,12 @@ def get_videos(path: Path, suffixes: str | set[str] | None = None) -> T.Iterator
 
 @functools.cache
 def get_exe(name: str) -> str:
-    if not (exe := shutil.which(name)):
-        raise FileNotFoundError(name)
-    return exe
+
+    for p in (os.environ.get("FFMPEG_ROOT"), None):
+        if exe := shutil.which(name, path=p):
+            return exe
+
+    raise FileNotFoundError(name)
 
 
 def get_ffmpeg() -> str:

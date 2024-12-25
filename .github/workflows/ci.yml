@@ -43,10 +43,6 @@ jobs:
       if: runner.os == 'Windows'
       run: echo "FFMPEG_ROOT=$env:LOCALAPPDATA/Microsoft/WinGet/Links/" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
-    - name: Where is ffmpeg (Windows)
-      if: runner.os == 'Windows'
-      run: where.exe ffmpeg
-
 # --- macOS
     - name: Install (macos)
       if: runner.os == 'macOS'

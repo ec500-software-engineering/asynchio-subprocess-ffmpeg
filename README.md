@@ -9,6 +9,8 @@ We use `src/` Python layout to demonstrate general good packaging practice, so t
 pip install -e .
 ```
 
+Hint the location of FFMPEG executable if necessary by setting the location in environment variable `FFMPEG_ROOT`.
+
 All examples are under the [examples/](./examples) directory.
 
 ## Coroutine vs Threads vs processes
