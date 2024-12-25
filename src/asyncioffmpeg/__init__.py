@@ -5,7 +5,7 @@ import shutil
 import functools
 
 
-def get_videos(path: Path, suffixes: str | set[str] = None) -> T.Iterator[Path]:
+def get_videos(path: Path, suffixes: str | set[str] | None = None) -> T.Iterator[Path]:
 
     if not suffixes:
         suffixes = {".mp4", ".avi", ".ogv", ".wmv", ".flv", ".mov"}

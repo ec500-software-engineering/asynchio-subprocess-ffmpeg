@@ -33,7 +33,3 @@ line-length = 100
 
 [tool.mypy]
 files = ["src", "examples"]
-
-ignore_missing_imports = true
-strict_optional = false
-show_column_numbers = true
